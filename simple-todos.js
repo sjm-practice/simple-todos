@@ -4,7 +4,7 @@ if (Meteor.isClient) {
 
     Template.body.helpers({
         tasks: function () {
-            return Tasks.find({});
+            return Tasks.find({}, { sort: { createdAt: -1 } });
         }
     });
 
@@ -19,7 +19,7 @@ if (Meteor.isClient) {
 
             event.target.text.value = "";
 
-            return false;
+            return false;     // signals browser to not do default action
         }
     });
 }
