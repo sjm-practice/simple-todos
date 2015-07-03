@@ -12,6 +12,9 @@ if (Meteor.isClient) {
         },
         hideCompleted: function () {
             return Session.get("hideComplete");
+        },
+        incompleteCount: function () {
+            return Tasks.find({checked: {$ne: true}}).count();
         }
     });
 
